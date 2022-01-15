@@ -1,11 +1,11 @@
 /** @format */
 
 import express from "express";
-import productsSchema from "./schema.js";
+import usersSchema from "./schema.js";
 
-const productsRouter = express();
+const usersRouter = express();
 
-productsRouter
+usersRouter
   .route("/")
   .post(async (req, res, next) => {
     try {
@@ -16,8 +16,8 @@ productsRouter
     } catch (error) {}
   });
 
-productsRouter
-  .route("/:productId")
+usersRouter
+  .route("/:userId")
   .get(async (req, res, next) => {
     try {
     } catch (error) {}
@@ -31,4 +31,4 @@ productsRouter
     } catch (error) {}
   });
 
-export default productsRouter;
+export default usersRouter;
