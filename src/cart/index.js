@@ -3,7 +3,7 @@
 import express from "express";
 import cartSchema from "./schema.js";
 
-const cartRouter = express();
+const cartRouter = express.Router();
 
 cartRouter
   .route("/")
