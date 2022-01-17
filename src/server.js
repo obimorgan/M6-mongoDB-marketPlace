@@ -5,6 +5,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import productsRouter from "./products/products/index.js";
 import reviewsRouter from "./products/reviews/index.js";
+import userRouter from "./users/index.js";
+import cartRouter from "./cart/index.js";
 import listEndpoints from "express-list-endpoints";
 import { notFoundHandler, badRequesthHandler } from "./errorhandlers.js";
 
@@ -25,6 +27,8 @@ server.use(badRequesthHandler);
 
 //routes - endpoints
 server.use("/products", productsRouter, reviewsRouter);
+server.use("/user", userRouter);
+server.use("/cart", cartRouter);
 
 //Grabs the address from .env
 mongoose.connect(process.env.MONGO_CONNECTION);
@@ -34,7 +38,7 @@ mongoose.connection.on("connected", () => {
   console.log("Connected to Mongo");
   server.listen(PORT, () => {
     console.log("Server listens to port:", PORT);
-    console.table(listEndpoints(server));
+    // console.table(listEndpoints(server));
   });
 });
 //handles error for connections
